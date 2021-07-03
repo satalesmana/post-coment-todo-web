@@ -44,8 +44,9 @@ $routes->group('auth', ['namespace' => 'App\Controllers'], function($routes)
     $routes->get('logout', 'LoginController::logout');
 });
 
-$routes->group('api', ['filter'=>'auth', 'namespace' => 'App\Controllers'], function($routes){
-	
+//'filter'=>'auth',
+$routes->group('api', [ 'namespace' => 'App\Controllers'], function($routes){
+	$routes->resource('post', ['controller' => 'PostController', 'except'=>'new,edit']);
 });
 /*
  * --------------------------------------------------------------------
